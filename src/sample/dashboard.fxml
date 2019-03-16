@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="dashboard_root" stylesheets="@styleSheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="dashboard_toppane" stylesheets="@styleSheet.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="296.0" layoutY="14.0" styleClass="main_label" stylesheets="@styleSheet.css" text="Pwani University Electoral Commission" AnchorPane.leftAnchor="296.0" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="14.0" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin></AnchorPane>
+   </top>
+   <left>
+      <VBox prefHeight="475.0" prefWidth="163.0" styleClass="leftPane" stylesheets="@styleSheet.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" focusTraversable="true" layoutX="15.0" layoutY="203.0" prefHeight="48.0" prefWidth="150.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+               <children>
+                  <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="Admin" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" focusTraversable="true" layoutX="15.0" layoutY="231.0" prefHeight="48.0" prefWidth="150.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+               <children>
+                  <Pane prefHeight="13.0" prefWidth="9.0" styleClass="status" stylesheets="@styleSheet.css" />
+                  <Label styleClass="small_label" stylesheets="@styleSheet.css" text="Online" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" focusTraversable="true" layoutX="15.0" layoutY="267.0" prefHeight="48.0" prefWidth="150.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+               <children>
+                  <Label opacity="0.5" styleClass="menu_label" stylesheets="@styleSheet.css" text="MENUS" />
+               </children>
+            </HBox>
+            <JFXButton contentDisplay="GRAPHIC_ONLY" style="-fx-background-color: #03000a;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" focusTraversable="true" prefHeight="48.0" prefWidth="150.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+                     <children>
+                        <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon_active">
+                           <image>
+                              <Image url="@res/ic_palette_white_48dp.png" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="menu_label_active" stylesheets="@styleSheet.css" text="Dashboard" />
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="15.0" layoutY="101.0" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" focusTraversable="true" prefHeight="48.0" prefWidth="150.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+                     <children>
+                        <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
+                           <image>
+                              <Image url="@res/ic_person_add_white_48dp.png" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="Voter Registration" />
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="15.0" layoutY="139.0" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" focusTraversable="true" prefHeight="48.0" prefWidth="150.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+                     <children>
+                        <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
+                           <image>
+                              <Image url="@res/ic_visibility_white_48dp.png" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="View Voters" />
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="15.0" layoutY="177.0" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" focusTraversable="true" prefHeight="48.0" prefWidth="150.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+                     <children>
+                        <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
+                           <image>
+                              <Image url="@res/ic_person_add_white_48dp.png" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="Candidate Registration" />
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="15.0" layoutY="215.0" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" focusTraversable="true" prefHeight="48.0" prefWidth="150.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+                     <children>
+                        <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
+                           <image>
+                              <Image url="@res/ic_visibility_white_48dp.png" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="View Candidates" />
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="15.0" layoutY="253.0" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" focusTraversable="true" prefHeight="48.0" prefWidth="150.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+                     <children>
+                        <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
+                           <image>
+                              <Image url="@res/ic_poll_white_48dp.png" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="Results" />
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="15.0" layoutY="291.0" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+               <graphic>
+                  <HBox alignment="CENTER_LEFT" focusTraversable="true" prefHeight="48.0" prefWidth="150.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+                     <children>
+                        <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
+                           <image>
+                              <Image url="@res/ic_school_white_48dp.png" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="Winners" />
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX" />
+         </effect></VBox>
+   </left>
+   <center>
+      <VBox prefHeight="300.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" VBox.vgrow="NEVER">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" top="5.0" />
+               </VBox.margin>
+               <children>
+                  <TilePane alignment="TOP_CENTER" hgap="30.0" prefColumns="3" prefRows="0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <AnchorPane prefHeight="100.0" prefWidth="200.0" styleClass="dashboard_tile" stylesheets="@styleSheet.css">
+                           <TilePane.margin>
+                              <Insets left="20.0" top="50.0" />
+                           </TilePane.margin>
+                           <children>
+                              <StackPane layoutX="-3.0" layoutY="-56.0" prefHeight="70.0" prefWidth="70.0" styleClass="dashboard_tile_icon" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="-30.0">
+                                 <children>
+                                    <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@res/images.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </StackPane>
+                              <Label layoutX="158.0" layoutY="6.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Registered " AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0" />
+                              <Label fx:id="counter" layoutX="154.0" layoutY="36.0" stylesheets="@styleSheet.css" text="1000" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
+                              <Label layoutX="86.0" layoutY="78.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Total number of registered voters" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                              <Line endX="100.0" layoutX="100.0" layoutY="60.0" startX="-100.0" stroke="#4caf50" strokeLineCap="ROUND" strokeWidth="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="65.0" />
+                           </children>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" />
+                           </effect>
+                        </AnchorPane>
+                        <AnchorPane layoutX="30.0" layoutY="60.0" prefHeight="100.0" prefWidth="200.0" styleClass="dashboard_tile" stylesheets="@styleSheet.css">
+                           <children>
+                              <StackPane layoutX="-3.0" layoutY="-56.0" prefHeight="70.0" prefWidth="70.0" styleClass="dashboard_tile_icon" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="-30.0">
+                                 <children>
+                                    <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@res/images.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </StackPane>
+                              <Label layoutX="158.0" layoutY="6.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Votes" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0" />
+                              <Label fx:id="counter1" layoutX="154.0" layoutY="36.0" stylesheets="@styleSheet.css" text="1000" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
+                              <Label layoutX="86.0" layoutY="78.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Total number of votes cast" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                              <Line endX="100.0" layoutX="116.0" layoutY="67.0" startX="-100.0" stroke="#4caf50" strokeLineCap="ROUND" strokeWidth="3.0" AnchorPane.leftAnchor="14.5" AnchorPane.rightAnchor="15.5" AnchorPane.topAnchor="65.5" />
+                           </children>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" />
+                           </effect>
+                           <TilePane.margin>
+                              <Insets top="50.0" />
+                           </TilePane.margin>
+                        </AnchorPane>
+                        <AnchorPane layoutX="30.0" layoutY="60.0" prefHeight="100.0" prefWidth="200.0" styleClass="dashboard_tile" stylesheets="@styleSheet.css">
+                           <children>
+                              <StackPane layoutX="-3.0" layoutY="-56.0" prefHeight="70.0" prefWidth="70.0" styleClass="dashboard_tile_icon" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="-30.0">
+                                 <children>
+                                    <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@res/images.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </StackPane>
+                              <Label layoutX="158.0" layoutY="6.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Candidates" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0" />
+                              <Label fx:id="counter2" layoutX="154.0" layoutY="36.0" stylesheets="@styleSheet.css" text="1000" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
+                              <Label layoutX="86.0" layoutY="78.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Total number of registered candidates" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                              <Line endX="100.0" layoutX="116.0" layoutY="66.0" startX="-100.0" stroke="#4caf50" strokeLineCap="ROUND" strokeWidth="3.0" AnchorPane.leftAnchor="15.5" AnchorPane.rightAnchor="16.5" AnchorPane.topAnchor="65.5" />
+                           </children>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" />
+                           </effect>
+                           <TilePane.margin>
+                              <Insets top="50.0" />
+                           </TilePane.margin>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="214.0" prefHeight="100.0" prefWidth="200.0" styleClass="dashboard_tile" stylesheets="@styleSheet.css">
+                           <children>
+                              <StackPane layoutX="-3.0" layoutY="-56.0" prefHeight="70.0" prefWidth="70.0" styleClass="dashboard_tile_icon" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="-30.0">
+                                 <children>
+                                    <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@res/images.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </StackPane>
+                              <Label layoutX="158.0" layoutY="6.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Registered" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0" />
+                              <Label fx:id="counter21" layoutX="154.0" layoutY="36.0" stylesheets="@styleSheet.css" text="1000" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
+                              <Label layoutX="86.0" layoutY="78.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Total number of registered voters" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                              <Line endX="100.0" fill="#4caf50" layoutX="116.0" layoutY="66.0" startX="-100.0" stroke="#4caf50" strokeLineCap="ROUND" strokeWidth="3.0" AnchorPane.leftAnchor="15.5" AnchorPane.rightAnchor="16.5" AnchorPane.topAnchor="65.5" />
+                           </children>
+                           <effect>
+                              <DropShadow blurType="ONE_PASS_BOX" />
+                           </effect>
+                           <TilePane.margin>
+                              <Insets top="50.0" />
+                           </TilePane.margin>
+                        </AnchorPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" />
+                     </padding>
+                  </TilePane>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="296.0" prefWidth="795.0" spacing="30.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="282.0" prefWidth="249.0" styleClass="dashboard_tab" stylesheets="@styleSheet.css">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <AnchorPane prefHeight="124.0" prefWidth="237.0" styleClass="dashboard_tab_top" stylesheets="@styleSheet.css">
+                           <children>
+                              <Label fx:id="ballotTitle_label" layoutX="71.0" layoutY="57.0" prefHeight="40.0" prefWidth="132.0" styleClass="ballotTitle_label" stylesheets="@styleSheet.css" text="PUSA Election" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="20.0" />
+                              <Label layoutX="97.0" layoutY="70.0" styleClass="small_label" stylesheets="@styleSheet.css" text="Pending" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="45.0" />
+                              <ImageView fitHeight="77.0" fitWidth="70.0" layoutX="14.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="10.0">
+                                 <image>
+                                    <Image url="@../../../../Desktop/Folders/User.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <HBox prefHeight="31.0" prefWidth="250.0">
+                           <children>
+                              <Label styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Start date:" />
+                              <Label styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="10-Mar-19" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="140.0" prefHeight="31.0" prefWidth="250.0">
+                           <children>
+                              <Label styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Close date:" />
+                              <Label styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="10-Mar-19" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="171.0" prefHeight="31.0" prefWidth="250.0">
+                           <children>
+                              <Label styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Positions: :" />
+                              <Label styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="6" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox layoutX="293.0" layoutY="10.0" prefHeight="282.0" prefWidth="249.0" styleClass="dashboard_tab" stylesheets="@styleSheet.css">
+                     <children>
+                        <AnchorPane prefHeight="124.0" prefWidth="237.0" styleClass="dashboard_tab2_top" stylesheets="@styleSheet.css">
+                           <children>
+                              <Label fx:id="ballotTitle_label1" layoutX="58.0" layoutY="13.0" prefHeight="40.0" prefWidth="132.0" styleClass="ballotTitle_label" stylesheets="@styleSheet.css" text="Polling Stations" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="13.0" />
+                           </children>
+                        </AnchorPane>
+                        <Pane prefHeight="200.0" style="-fx-border-style: solid; -fx-border-color: #e0e0e0; -fx-border-width: 1px;">
+                           <children>
+                              <Label layoutY="52.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="School of Art &amp; Social Sciences" />
+                              <Label layoutY="26.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="School of Nursing &amp; Health Sciences" />
+                              <Label layoutY="78.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="School of Education" />
+                              <Label styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="School of Pure &amp; Applied Sciences" />
+                              <Label layoutY="104.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="School of Agriculture" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Pane>
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </VBox>
+                  <VBox layoutX="443.0" layoutY="10.0" prefHeight="282.0" prefWidth="249.0" styleClass="dashboard_tab3" stylesheets="@styleSheet.css">
+                     <children>
+                        <AnchorPane prefHeight="124.0" prefWidth="237.0" styleClass="dashboard_tab3_top" stylesheets="@styleSheet.css">
+                           <children>
+                              <Label fx:id="ballotTitle_label11" layoutX="58.0" layoutY="13.0" prefHeight="40.0" prefWidth="132.0" styleClass="ballotTitle_label" stylesheets="@styleSheet.css" text="Notifications" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="13.0" />
+                           </children>
+                        </AnchorPane>
+                        <JFXListView />
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>

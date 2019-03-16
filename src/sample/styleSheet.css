@@ -1,0 +1,262 @@
+.root {
+    -fx-background-color: #efebe9;
+    -fx-background-radius: 10px;
+    -fx-margin-end: 5px;
+    -fx-pref-width: 800px;
+    -fx-pref-height: 550px;
+}
+.dashboard_root {
+    -fx-background-color: #efebe9;
+    -fx-background-radius: 10px;
+    -fx-margin-end: 5px;
+    -fx-pref-width: 1000px;
+    -fx-pref-height: 700px;
+}
+.topPane {
+    -fx-background-color: #039be5;
+    -fx-background-radius: 10px;
+    -fx-pref-width: inherit;
+    -fx-pref-height: 150px;
+}
+.leftPane {
+    -fx-background-color: #263238;
+    -fx-pref-width: 200px;
+    -fx-pref-height: inherit;
+    -fx-margin-start: 5px;
+}
+.contentPane {
+    -fx-background-color: transparent;
+    -fx-pref-width: inherit;
+    -fx-pref-height: inherit;
+}
+.leftPane_menu {
+    -fx-pref-width: inherit;
+    -fx-pref-height: 25px;
+}
+.leftPane_menu:focused {
+    -fx-background-color: #070214;
+}
+.button_icon {
+   -fx-background-color: transparent;
+   -fx-pref-width: 35px;
+   -fx-pref-height: 35px;
+}
+.image-view_icon {
+    -fx-opacity: 0.5;
+    -fx-pref-width: inherit;
+    -fx-pref-height: inherit;
+}
+.image-view_icon_active {
+    -fx-opacity: 1;
+    -fx-pref-width: inherit;
+    -fx-pref-height: inherit;
+}
+.status {
+   -fx-background-color: #4caf50;
+   -fx-pref-width: 2px;
+   -fx-pref-height: 1px;
+}
+.line_decorator {
+    -fx-background-color: #039be5;
+    -fx-background-radius: 5px;
+    -fx-pref-height: 4px;
+}
+.dashboard_toppane {
+    -fx-background-color: #039be5;
+    -fx-pref-width: inherit;
+    -fx-pref-height: 75px;
+}
+.centerPane {
+    -fx-background-color: white;
+    -fx-alignment: center;
+    -fx-pref-width: 400px;
+    -fx-pref-height: 400px;
+}
+.jfx-text-field {
+    -fx-pref-width: 200px;
+    -fx-pref-height: 30px;
+    -fx-font-family: "Times New Roman";
+    -fx-font: normal;
+    -fx-font-size: 16px;
+    -fx-text-fill: black;
+    -fx-prompt-text-fill: gray;
+    -fx-background-radius: 10px;
+    -jfx-focus-color: #039be5;
+    -jfx-unfocus-color: #4d4d4d;
+}
+.jfx-button {
+    -fx-background-color: #039be5;
+    -fx-background-radius: 20px;
+    -fx-text-fill: white;
+    -fx-font-family: "Times New Roman";
+    -fx-font: bold;
+    -fx-font-size: 18px;
+    -fx-alignment: center;
+}
+.label {
+    -fx-font-family: "Times New Roman";
+    -fx-font: normal;
+    -fx-font-size: 14px;
+    -fx-background-color: transparent;
+    -fx-padding: 5px;
+    -fx-alignment: center;
+}
+
+.menu_label {
+    -fx-font-family: "Times New Roman";
+    -fx-font: normal;
+    -fx-font-size: 14px;
+    -fx-text-fill: #b0bec5;
+    -fx-background-color: transparent;
+    -fx-padding: 5px;
+    -fx-alignment: center;
+}
+.menu_label_active {
+    -fx-font-family: "Times New Roman";
+    -fx-font: normal;
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+    -fx-padding: 5px;
+    -fx-alignment: center;
+}
+.main_label {
+    -fx-text-fill: white;
+    -fx-font-family: "Times New Roman";
+    -fx-font: bold;
+    -fx-font-size: 24px;
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+    -fx-alignment: center;
+}
+.voter_reg_tab_main_label {
+    -fx-text-fill: black;
+    -fx-font-family: "Times New Roman";
+    -fx-font: bold;
+    -fx-font-size: 24px;
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+}
+.content_label {
+    -fx-text-fill: grey;
+    -fx-font-family: "Times New Roman";
+    -fx-font: normal;
+    -fx-font-size: 18px;
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+}
+.ballotTitle_label {
+    -fx-text-fill: white;
+    -fx-font-family: "Times New Roman";
+    -fx-font: bold;
+    -fx-font-size: 18px;
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+    -fx-alignment: center;
+}
+.small_label {
+    -fx-text-fill: white;
+    -fx-font-family: "Times New Roman";
+    -fx-font: bold;
+    -fx-font-size: 12px;
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+    -fx-alignment: center;
+}
+.voter_reg_tab_small_label {
+    -fx-text-fill: grey;
+    -fx-font-family: "Times New Roman";
+    -fx-font: bold;
+    -fx-font-size: 12px;
+    -fx-background-color: transparent;
+    -fx-alignment: BOTTOM_CENTER;
+}
+.tile {
+    -fx-background-color: white;
+    -fx-alignment: center;
+    -fx-pref-width: 650px;
+    -fx-pref-height: 150px;
+}
+#ballotPane {
+    -fx-background-color: transparent;
+    -fx-alignment: TOP_CENTER;
+    -fx-tile-alignment: CENTER;
+    -fx-vgap: 20px;
+}
+#ballotPane_container {
+    -fx-background-color: transparent;
+    -fx-alignment: CENTER;
+    -fx-padding: 10px;
+}
+.dashboard_tile {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 75px;
+}
+.dashboard_tile_icon {
+    -fx-background-color: #039be5;
+    -fx-background-radius: 5px;
+    -fx-pref-width: 70px;
+    -fx-pref-height: 70px;
+    -fx-padding: 5px;
+}
+.dashboard_tile_label {
+    -fx-font-family: "Times New Roman";
+    -fx-font: normal;
+    -fx-font-size: 14px;
+    -fx-text-fill: grey;
+    -fx-background-color: transparent;
+    -fx-padding: 5px;
+    -fx-alignment: center;
+}
+#counter {
+    -fx-font-family: "Times New Roman";
+    -fx-font: bold;
+    -fx-font-size: 18px;
+    -fx-text-fill: black;
+    -fx-background-color: transparent;
+    -fx-padding: 5px;
+    -fx-alignment: center;
+}
+.dashboard_tab {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-pref-width: 250px;
+    -fx-pref-height: 250px;
+}
+.dashboard_tab3 {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-pref-width: 500px;
+    -fx-pref-height: 250px;
+}
+.dashboard_tab_top {
+    -fx-background-color: #039be5;
+    -fx-background-radius: 5px;
+    -fx-pref-width: inherit;
+    -fx-pref-height: 130px;
+}
+.dashboard_tab2_top {
+    -fx-background-color: #4caf50;
+    -fx-background-radius: 5px;
+    -fx-pref-width: inherit;
+    -fx-pref-height: 65px;
+}
+.dashboard_tab3_top {
+    -fx-background-color: #ff7043;
+    -fx-background-radius: 5px;
+    -fx-pref-width: inherit;
+    -fx-pref-height: 65px;
+}
+.voter_reg_tab_container {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-pref-width: 400px;
+    -fx-pref-height: 400px;
+    -fx-alignment: TOP_LEFT;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+    -fx-border-color: grey;
+    -fx-border-radius: 5px;
+}
