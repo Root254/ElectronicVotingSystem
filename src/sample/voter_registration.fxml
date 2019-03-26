@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="dashboard_root" stylesheets="@styleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="dashboard_root" stylesheets="@styleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.VoterRegistrationController">
    <top>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="dashboard_toppane" stylesheets="@styleSheet.css" BorderPane.alignment="CENTER">
          <children>
@@ -38,7 +38,7 @@
                <children>
                   <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="MENU" />
                </children></HBox>
-            <JFXButton contentDisplay="GRAPHIC_ONLY" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+            <JFXButton fx:id="dashboard" contentDisplay="GRAPHIC_ONLY" onAction="#goToDashboard" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
                <graphic>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
                      <children>
@@ -52,7 +52,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="102.0" ripplerFill="#070214" style="-fx-background-color: #03000a;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+            <JFXButton fx:id="voterRegistration" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="102.0" onAction="#goToVoterRegistration" ripplerFill="#070214" style="-fx-background-color: #03000a;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
                <graphic>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
                      <children>
@@ -66,7 +66,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="144.0" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+            <JFXButton fx:id="viewVoters" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="144.0" onAction="#goToViewVoters" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
                <graphic>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
                      <children>
@@ -80,7 +80,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="186.0" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+            <JFXButton fx:id="candidateRegistration" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="186.0" onAction="#goToCandidateRegistration" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
                <graphic>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
                      <children>
@@ -94,7 +94,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="228.0" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+            <JFXButton fx:id="viewCandidates" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="228.0" onAction="#goToViewCandidates" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
                <graphic>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
                      <children>
@@ -108,7 +108,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="270.0" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+            <JFXButton fx:id="results" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="270.0" onAction="#goToResults" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
                <graphic>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
                      <children>
@@ -122,7 +122,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="312.0" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+            <JFXButton fx:id="winners" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="312.0" onAction="#goToWinners" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
                <graphic>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
                      <children>
@@ -139,7 +139,7 @@
          </children></VBox>
    </left>
    <center>
-      <AnchorPane prefHeight="625.0" prefWidth="642.0" stylesheets="@styleSheet.css" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="625.0" prefWidth="642.0" stylesheets="@styleSheet.css">
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="line_decorator" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="48.0" />
             <HBox AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="10.0">
@@ -182,7 +182,8 @@
                </padding>
                <effect>
                   <DropShadow />
-               </effect></VBox>
+               </effect>
+            </VBox>
          </children>
       </AnchorPane>
    </center>

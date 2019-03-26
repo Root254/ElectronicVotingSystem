@@ -2,7 +2,7 @@
     -fx-background-color: #efebe9;
     -fx-background-radius: 10px;
     -fx-margin-end: 5px;
-    -fx-pref-width: 800px;
+    -fx-pref-width: 1000px;
     -fx-pref-height: 550px;
 }
 .dashboard_root {
@@ -14,7 +14,6 @@
 }
 .topPane {
     -fx-background-color: #039be5;
-    -fx-background-radius: 10px;
     -fx-pref-width: inherit;
     -fx-pref-height: 150px;
 }
@@ -81,7 +80,7 @@
     -fx-text-fill: black;
     -fx-prompt-text-fill: gray;
     -fx-background-radius: 10px;
-    -jfx-focus-color: #039be5;
+    -jfx-focus-color: #4059a9;
     -jfx-unfocus-color: #4d4d4d;
 }
 .jfx-button {
