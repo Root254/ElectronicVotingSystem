@@ -24,9 +24,9 @@
                   <DropShadow />
                </effect>
                <children>
-                  <JFXTextField focusColor="#039be5" labelFloat="true" layoutX="101.0" layoutY="169.0" promptText="VoterID" styleClass="jfx-text-field" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="200.0" />
+                  <JFXTextField fx:id="voterIDField" focusColor="#039be5" labelFloat="true" layoutX="101.0" layoutY="169.0" promptText="VoterID" styleClass="jfx-text-field" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="200.0" />
                   <JFXButton fx:id="voter_login" buttonType="RAISED" layoutX="164.0" layoutY="273.0" onAction="#handleStaffLogin" styleClass="jfx-button" stylesheets="@styleSheet.css" text="Login" AnchorPane.leftAnchor="164.0" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="300.0" />
-                  <JFXPasswordField layoutX="100.0" layoutY="219.0" promptText="Password" styleClass="jfx-text-field" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="250.0" />
+                  <JFXPasswordField fx:id="pwdField" layoutX="100.0" layoutY="219.0" promptText="Token" styleClass="jfx-text-field" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="250.0" />
                   <ImageView fitHeight="118.0" fitWidth="118.0" layoutX="149.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="50.0">
                      <image>
                         <Image url="@res/images.jpg" />
