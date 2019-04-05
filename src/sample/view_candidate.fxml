@@ -1,172 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="dashboard_root" stylesheets="@styleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ViewCandidateController">
-    <top>
-        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="dashboard_toppane" stylesheets="@styleSheet.css" BorderPane.alignment="CENTER">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="917.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TableView layoutX="182.0" layoutY="104.0" prefHeight="378.0" prefWidth="790.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="70.0">
+            <columns>
+                <TableColumn prefWidth="117.0" text="Image" />
+                <TableColumn prefWidth="166.0" text="Name" />
+                <TableColumn prefWidth="109.0" text="School" />
+                <TableColumn prefWidth="158.0" text="Email" />
+                <TableColumn prefWidth="105.0" text="Telephone" />
+            <TableColumn prefWidth="134.0" text="Position" />
+            </columns>
+        </TableView>
+        <HBox alignment="CENTER" layoutX="621.0" layoutY="20.0" spacing="5.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="20.0">
             <children>
-                <Label layoutX="296.0" layoutY="15.0" styleClass="main_label" stylesheets="@styleSheet.css" text="Pwani University Electoral Commission" AnchorPane.leftAnchor="296.0" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="14.0" />
-            </children></AnchorPane>
-    </top>
-    <left>
-        <VBox prefHeight="200.0" prefWidth="100.0" styleClass="leftPane" stylesheets="@styleSheet.css" BorderPane.alignment="CENTER">
-            <children>
-                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <children>
-                        <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="Admin" />
-                    </children></HBox>
-                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <children>
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="status" stylesheets="@styleSheet.css" />
-                        <Label styleClass="small_label" stylesheets="@styleSheet.css" text="Online" />
-                    </children></HBox>
-                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="35.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #03000a;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <children>
-                        <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="MENU" />
-                    </children></HBox>
-                <JFXButton fx:id="dashboard" contentDisplay="GRAPHIC_ONLY" onAction="#goToDashboard" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                            <children>
-                                <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
-                                    <image>
-                                        <Image url="@res/ic_palette_white_48dp.png" />
-                                    </image>
-                                </ImageView>
-                                <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="Dashboard" />
-                            </children>
-                        </HBox>
-                    </graphic>
-                </JFXButton>
-                <JFXButton fx:id="voterRegistration" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="102.0" onAction="#goToVoterRegistration" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                            <children>
-                                <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
-                                    <image>
-                                        <Image url="@res/ic_person_add_white_48dp.png" />
-                                    </image>
-                                </ImageView>
-                                <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="Voter Registration" />
-                            </children>
-                        </HBox>
-                    </graphic>
-                </JFXButton>
-                <JFXButton fx:id="viewVoters" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="144.0" onAction="#goToViewVoters" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                            <children>
-                                <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
-                                    <image>
-                                        <Image url="@res/ic_visibility_white_48dp.png" />
-                                    </image>
-                                </ImageView>
-                                <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="View Voters" />
-                            </children>
-                        </HBox>
-                    </graphic>
-                </JFXButton>
-                <JFXButton fx:id="candidateRegistration" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="186.0" onAction="#goToCandidateRegistration" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                            <children>
-                                <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
-                                    <image>
-                                        <Image url="@res/ic_person_add_white_48dp.png" />
-                                    </image>
-                                </ImageView>
-                                <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="Candidate Registration" />
-                            </children>
-                        </HBox>
-                    </graphic>
-                </JFXButton>
-                <JFXButton fx:id="viewCandidates" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="228.0" onAction="#goToViewCandidates" ripplerFill="#070214" style="-fx-background-color: #03000a;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                            <children>
-                                <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon_active">
-                                    <image>
-                                        <Image url="@res/ic_visibility_white_48dp.png" />
-                                    </image>
-                                </ImageView>
-                                <Label styleClass="menu_label_active" stylesheets="@styleSheet.css" text="View Candidates" />
-                            </children>
-                        </HBox>
-                    </graphic>
-                </JFXButton>
-                <JFXButton fx:id="results" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="270.0" onAction="#goToResults" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                            <children>
-                                <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
-                                    <image>
-                                        <Image url="@res/ic_poll_white_48dp.png" />
-                                    </image>
-                                </ImageView>
-                                <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="Results" />
-                            </children>
-                        </HBox>
-                    </graphic>
-                </JFXButton>
-                <JFXButton fx:id="winners" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="312.0" onAction="#goToWinners" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                            <children>
-                                <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
-                                    <image>
-                                        <Image url="@res/ic_school_white_48dp.png" />
-                                    </image>
-                                </ImageView>
-                                <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="Winners" />
-                            </children>
-                        </HBox>
-                    </graphic>
-                </JFXButton>
-            </children></VBox>
-    </left>
-    <center>
-        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-            <children>
-                <HBox alignment="CENTER_RIGHT" spacing="5.0">
-                    <children>
-                        <AnchorPane>
-                            <children>
-                                <FontAwesomeIconView fill="#7c7676" glyphName="SEARCH" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0" />
-                                <JFXTextField layoutX="16.0" promptText="Search" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                            </children>
-                        </AnchorPane>
-                    </children></HBox>
-                <HBox alignment="CENTER" prefHeight="339.0" prefWidth="800.0">
-                    <children>
-                        <TableView prefHeight="339.0" prefWidth="760.0">
-                            <columns>
-                                <TableColumn prefWidth="138.0" text="Admission Number" />
-                                <TableColumn prefWidth="166.0" text="Name" />
-                                <TableColumn prefWidth="117.0" text="School" />
-                                <TableColumn prefWidth="158.0" text="Email" />
-                                <TableColumn prefWidth="180.0" text="Image" />
-                            </columns>
-                        </TableView>
-                    </children>
-                </HBox>
+                <FontAwesomeIconView fill="GREY" glyphName="SEARCH" strokeType="OUTSIDE" strokeWidth="0.0" />
+                <JFXTextField promptText="Search" stylesheets="@styleSheet.css" />
             </children>
-            <padding>
-                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-            </padding>
-        </VBox>
-    </center>
-</BorderPane>
+        </HBox>
+    </children>
+</AnchorPane>

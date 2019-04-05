@@ -7,11 +7,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class ViewCandidateController {
+    public BorderPane borderpane;
     @FXML private JFXButton dashboard;
     @FXML private JFXButton voterRegistration;
     @FXML private JFXButton viewVoters;
