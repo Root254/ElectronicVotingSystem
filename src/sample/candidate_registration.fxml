@@ -7,183 +7,58 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="dashboard_root" stylesheets="@styleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CandidateRegistrationController">
-    <top>
-        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="dashboard_toppane" stylesheets="@styleSheet.css" BorderPane.alignment="CENTER">
-            <children>
-                <Label layoutX="296.0" layoutY="15.0" styleClass="main_label" stylesheets="@styleSheet.css" text="Pwani University Electoral Commission" AnchorPane.leftAnchor="296.0" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="14.0" />
-            </children></AnchorPane>
-    </top>
-    <left>
-        <VBox prefHeight="200.0" prefWidth="100.0" styleClass="leftPane" stylesheets="@styleSheet.css" BorderPane.alignment="CENTER">
-            <children>
-                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <children>
-                        <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="Admin" />
-                    </children></HBox>
-                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <children>
-                        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="status" stylesheets="@styleSheet.css" />
-                        <Label styleClass="small_label" stylesheets="@styleSheet.css" text="Online" />
-                    </children></HBox>
-                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="35.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #03000a;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <children>
-                        <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="MENU" />
-                    </children></HBox>
-                <JFXButton fx:id="dashboard" contentDisplay="GRAPHIC_ONLY" onAction="#goToDashboard" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                            <children>
-                                <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
-                                    <image>
-                                        <Image url="@res/ic_palette_white_48dp.png" />
-                                    </image>
-                                </ImageView>
-                                <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="Dashboard" />
-                            </children>
-                        </HBox>
-                    </graphic>
-                </JFXButton>
-                <JFXButton fx:id="voterRegistration" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="102.0" onAction="#goToVoterRegistration" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                            <children>
-                                <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
-                                    <image>
-                                        <Image url="@res/ic_person_add_white_48dp.png" />
-                                    </image>
-                                </ImageView>
-                                <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="Voter Registration" />
-                            </children>
-                        </HBox>
-                    </graphic>
-                </JFXButton>
-                <JFXButton fx:id="viewVoters" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="144.0" onAction="#goToViewVoters" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                            <children>
-                                <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
-                                    <image>
-                                        <Image url="@res/ic_visibility_white_48dp.png" />
-                                    </image>
-                                </ImageView>
-                                <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="View Voters" />
-                            </children>
-                        </HBox>
-                    </graphic>
-                </JFXButton>
-                <JFXButton fx:id="candidateRegistration" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="186.0" onAction="#goToCandidateRegistration" ripplerFill="#070214" style="-fx-background-color: #03000a;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                            <children>
-                                <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon_active">
-                                    <image>
-                                        <Image url="@res/ic_person_add_white_48dp.png" />
-                                    </image>
-                                </ImageView>
-                                <Label styleClass="menu_label_active" stylesheets="@styleSheet.css" text="Candidate Registration" />
-                            </children>
-                        </HBox>
-                    </graphic>
-                </JFXButton>
-                <JFXButton fx:id="viewCandidates" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="228.0" onAction="#goToViewCandidates" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                            <children>
-                                <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
-                                    <image>
-                                        <Image url="@res/ic_visibility_white_48dp.png" />
-                                    </image>
-                                </ImageView>
-                                <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="View Candidates" />
-                            </children>
-                        </HBox>
-                    </graphic>
-                </JFXButton>
-                <JFXButton fx:id="results" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="270.0" onAction="#goToResults" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                            <children>
-                                <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
-                                    <image>
-                                        <Image url="@res/ic_poll_white_48dp.png" />
-                                    </image>
-                                </ImageView>
-                                <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="Results" />
-                            </children>
-                        </HBox>
-                    </graphic>
-                </JFXButton>
-                <JFXButton fx:id="winners" contentDisplay="GRAPHIC_ONLY" layoutX="10.0" layoutY="312.0" onAction="#goToWinners" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                    <graphic>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
-                            <children>
-                                <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view_icon">
-                                    <image>
-                                        <Image url="@res/ic_school_white_48dp.png" />
-                                    </image>
-                                </ImageView>
-                                <Label styleClass="menu_label" stylesheets="@styleSheet.css" text="Winners" />
-                            </children>
-                        </HBox>
-                    </graphic>
-                </JFXButton>
-            </children></VBox>
-    </left>
-    <center>
-        <AnchorPane prefHeight="625.0" prefWidth="642.0" stylesheets="@styleSheet.css" BorderPane.alignment="CENTER">
-            <children>
-                <Pane prefHeight="200.0" prefWidth="200.0" styleClass="line_decorator" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="48.0" />
-                <HBox AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="10.0">
-                    <children>
-                        <Label styleClass="voter_reg_tab_main_label" stylesheets="@styleSheet.css" text="Manage Candidates " />
-                        <AnchorPane>
-                            <children>
-                                <Label styleClass="voter_reg_tab_small_label" stylesheets="@styleSheet.css" text="Election Management System" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="7.0" />
-                            </children>
-                        </AnchorPane>
-                    </children>
-                </HBox>
-                <VBox layoutX="200.0" layoutY="88.0" prefHeight="200.0" prefWidth="100.0" spacing="25.0" styleClass="voter_reg_tab_container" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="52.0">
-                    <children>
-                        <Label layoutX="182.0" layoutY="119.0" styleClass="content_label" stylesheets="@styleSheet.css" text="Add Candidate" />
-                        <JFXTextField labelFloat="true" promptText="Admission Number" />
-                        <JFXTextField labelFloat="true" promptText="Candidate Name" />
-                        <JFXComboBox labelFloat="true" prefWidth="150.0" promptText="Posistion" />
-                        <JFXComboBox labelFloat="true" layoutX="21.0" layoutY="351.0" prefWidth="150.0" promptText="Gender" />
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Button mnemonicParsing="false" text="Image" />
-                        <Label text="No file chosen" />
-                     </children>
-                  </HBox>
-                        <JFXTextField labelFloat="true" promptText="Candidate Email" />
-                        <JFXTextField labelFloat="true" layoutX="21.0" layoutY="288.0" promptText="Candidate Telephone" />
-                        <HBox alignment="BOTTOM_CENTER" spacing="60.0">
-                            <children>
-                                <JFXButton buttonType="RAISED" cancelButton="true" mnemonicParsing="false" text="Clear" />
-                                <JFXButton buttonType="RAISED" mnemonicParsing="false" text="Add" />
-                            </children>
-                            <VBox.margin>
-                                <Insets top="40.0" />
-                            </VBox.margin>
-                        </HBox>
-                    </children>
-                    <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                    </padding>
-                    <effect>
-                        <DropShadow />
-                    </effect></VBox>
-            </children>
-        </AnchorPane>
-    </center>
-</BorderPane>
+<AnchorPane prefHeight="625.0" prefWidth="642.0" stylesheets="@styleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+               <VBox alignment="CENTER" layoutX="196.0" layoutY="10.0">
+                   <children>
+                       <HBox>
+                           <children>
+                               <Label styleClass="voter_reg_tab_main_label" stylesheets="@styleSheet.css" text="Manage Candidates " />
+                               <AnchorPane>
+                                   <children>
+                                       <Label styleClass="voter_reg_tab_small_label" stylesheets="@styleSheet.css" text="Election Management System" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="7.0" />
+                                   </children>
+                               </AnchorPane>
+                           </children>
+                       </HBox>
+                       <VBox prefHeight="200.0" prefWidth="100.0" spacing="25.0" styleClass="voter_reg_tab_container" stylesheets="@styleSheet.css">
+                           <children>
+                               <Label layoutX="182.0" layoutY="119.0" styleClass="content_label" stylesheets="@styleSheet.css" text="Add Candidate" />
+                               <JFXTextField labelFloat="true" promptText="Admission Number" />
+                               <JFXTextField labelFloat="true" promptText="Candidate Name" />
+                               <JFXComboBox labelFloat="true" prefWidth="150.0" promptText="School" />
+                               <JFXComboBox labelFloat="true" layoutX="21.0" layoutY="351.0" prefWidth="150.0" promptText="Gender" />
+                  <JFXComboBox labelFloat="true" layoutX="21.0" layoutY="188.0" prefWidth="150.0" promptText="Posistion" />
+                               <HBox prefHeight="100.0" prefWidth="200.0">
+                                   <children>
+                                       <Button mnemonicParsing="false" text="Image" />
+                                       <Label text="No file chosen" />
+                                   </children>
+                               </HBox>
+                               <JFXTextField labelFloat="true" promptText="Candidate Email" />
+                               <JFXTextField labelFloat="true" layoutX="21.0" layoutY="288.0" promptText="Candidate Telephone" />
+                               <HBox alignment="BOTTOM_CENTER" spacing="60.0">
+                                   <children>
+                                       <JFXButton buttonType="RAISED" cancelButton="true" mnemonicParsing="false" text="Clear" />
+                                       <JFXButton buttonType="RAISED" mnemonicParsing="false" text="Add" />
+                                   </children>
+                                   <VBox.margin>
+                                       <Insets top="40.0" />
+                                   </VBox.margin>
+                               </HBox>
+                           </children>
+                           <padding>
+                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <effect>
+                               <DropShadow />
+                           </effect>
+                       </VBox>
+                   </children>
+               </VBox>
+           </children>
+</AnchorPane>
