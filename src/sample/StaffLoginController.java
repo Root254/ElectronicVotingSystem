@@ -28,6 +28,7 @@ public class StaffLoginController {
             window.setScene(new Scene(staffLog));
         }
         else
+
             pwdField.requestFocus();
             pwdField.setStyle("-jfx-focus-color: red;");
     }

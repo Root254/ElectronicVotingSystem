@@ -3,15 +3,16 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="625.0" prefWidth="642.0" stylesheets="@styleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="625.0" prefWidth="642.0" stylesheets="@styleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CandidateRegistrationController">
    <children>
                <VBox alignment="CENTER" layoutX="196.0" layoutY="10.0">
                    <children>
@@ -25,26 +26,41 @@
                                </AnchorPane>
                            </children>
                        </HBox>
-                       <VBox prefHeight="200.0" prefWidth="100.0" spacing="25.0" styleClass="voter_reg_tab_container" stylesheets="@styleSheet.css">
+                       <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="voter_reg_tab_container" stylesheets="@styleSheet.css">
                            <children>
                                <Label layoutX="182.0" layoutY="119.0" styleClass="content_label" stylesheets="@styleSheet.css" text="Add Candidate" />
-                               <JFXTextField labelFloat="true" promptText="Admission Number" />
-                               <JFXTextField labelFloat="true" promptText="Candidate Name" />
-                               <JFXComboBox labelFloat="true" prefWidth="150.0" promptText="School" />
-                               <JFXComboBox labelFloat="true" layoutX="21.0" layoutY="351.0" prefWidth="150.0" promptText="Gender" />
-                  <JFXComboBox labelFloat="true" layoutX="21.0" layoutY="188.0" prefWidth="150.0" promptText="Posistion" />
-                               <HBox prefHeight="100.0" prefWidth="200.0">
+                  <VBox>
+                     <children>
+                                     <JFXTextField fx:id="admField" labelFloat="true" onMouseExited="#populateFields" promptText="Admission Number" />
+                        <Label fx:id="errMsg" visible="false" />
+                     </children>
+                  </VBox>
+                               <JFXTextField fx:id="nameField" labelFloat="true" promptText="Candidate Name" />
+                               <JFXComboBox fx:id="schoolCombo" labelFloat="true" prefWidth="150.0" promptText="School" />
+                               <JFXComboBox fx:id="genderCombo" labelFloat="true" layoutX="21.0" layoutY="351.0" prefWidth="150.0" promptText="Gender" />
+                  <JFXComboBox fx:id="pstnCombo" labelFloat="true" layoutX="21.0" layoutY="188.0" prefWidth="150.0" promptText="Posistion" />
+                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                                    <children>
-                                       <Button mnemonicParsing="false" text="Image" />
-                                       <Label text="No file chosen" />
+                        <Label text="Candidate photo" />
+                        <ImageView fx:id="pic" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
                                    </children>
                                </HBox>
-                               <JFXTextField labelFloat="true" promptText="Candidate Email" />
-                               <JFXTextField labelFloat="true" layoutX="21.0" layoutY="288.0" promptText="Candidate Telephone" />
-                               <HBox alignment="BOTTOM_CENTER" spacing="60.0">
+                               <JFXTextField fx:id="emailField" labelFloat="true" promptText="Candidate Email" />
+                               <JFXTextField fx:id="telephoneField" labelFloat="true" layoutX="21.0" layoutY="288.0" promptText="Candidate Telephone" />
+                               <HBox alignment="CENTER" spacing="60.0">
                                    <children>
-                                       <JFXButton buttonType="RAISED" cancelButton="true" mnemonicParsing="false" text="Clear" />
-                                       <JFXButton buttonType="RAISED" mnemonicParsing="false" text="Add" />
+                                       <JFXButton buttonType="RAISED" cancelButton="true" mnemonicParsing="false" onAction="#clearFields" text="Clear" />
+                        <HBox spacing="15.0">
+                           <children>
+                                             <JFXButton fx:id="btnSave" buttonType="RAISED" disable="true" mnemonicParsing="false" onAction="#saveFields" text="Save" />
+                              <HBox>
+                                 <children>
+                                    <FontAwesomeIconView fx:id="tick" fill="GREEN" glyphName="CHECK" size="20.0" strokeType="OUTSIDE" strokeWidth="0.0" visible="false" />
+                                    <Label fx:id="msg" text="Saved successfully" textFill="GREEN" visible="false" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
                                    </children>
                                    <VBox.margin>
                                        <Insets top="40.0" />
