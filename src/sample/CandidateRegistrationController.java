@@ -18,6 +18,7 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -38,9 +39,9 @@ public class CandidateRegistrationController implements Initializable {
 
     private ObservableList<String> schoolInitials = FXCollections.observableArrayList("SPAS", "SHSS", "SASA", "SBE", "SEES", "SoE");
     private ObservableList<String> genderInitials = FXCollections.observableArrayList("Male", "Female");
+    private ObservableList<ContestedPost> positionsData = FXCollections.observableArrayList();
+    public ObservableList<String> pstnInitials = FXCollections.observableArrayList();
     private Image image;
-    private FileChooser fc;
-    private File file;
 
     @FXML private void populateFields(MouseEvent mouseEvent) {
         tick.setVisible(false);
@@ -99,6 +100,29 @@ public class CandidateRegistrationController implements Initializable {
     }
 
     @FXML private void saveFields(ActionEvent actionEvent) {
+        try {
+            Connection con = DbConnector.getConnection();
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO voter_db.candidate_register VALUES (?,?,?,?,?,?,?,?)");
+
+            stmt.setString(1, admField.getText());
+            stmt.setString(2, nameField.getText());
+            stmt.setString(3, schoolCombo.getValue().toString());
+            stmt.setString(4, genderCombo.getValue().toString());
+            stmt.setString(5, pic.getImage().impl_getUrl());
+            stmt.setString(6, emailField.getText());
+            stmt.setInt(7, Integer.valueOf(telephoneField.getText()));
+            stmt.setString(8, pstnCombo.getValue().toString());
+            int i = stmt.executeUpdate();
+
+            if (i > 0) {
+                msg.setVisible(true);
+                tick.setVisible(true);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        clear();
+        admField.setStyle("-jfx-focus-color: #4059a9;");
     }
 
     @FXML private void clearFields(ActionEvent actionEvent) {
@@ -112,6 +136,24 @@ public class CandidateRegistrationController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         schoolCombo.setItems(schoolInitials);
         genderCombo.setItems(genderInitials);
+        setPstnCombo();
+        pstnCombo.setItems(pstnInitials);
+    }
+
+    public void setPstnCombo() {
+        try {
+            Connection con = DbConnector.getConnection();
+            ResultSet rs = con.createStatement().executeQuery("SELECT * FROM voter_db.contested_posts");
+
+            while (rs.next()) {
+                //positionsData.add(new ContestedPost(rs.getInt("Post_ID"), rs.getString("Post_Name")));
+                pstnInitials.add(rs.getString("Post_Name"));
+            }
+            rs.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private void clear() {
@@ -119,8 +161,10 @@ public class CandidateRegistrationController implements Initializable {
         nameField.clear();
         schoolCombo.setValue(null);
         genderCombo.setValue(null);
+        pstnCombo.setValue(null);
         emailField.clear();
         telephoneField.clear();
         pic.setImage(null);
+        btnSave.setDisable(true);
     }
 }

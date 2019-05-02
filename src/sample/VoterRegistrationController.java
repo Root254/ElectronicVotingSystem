@@ -153,5 +153,6 @@ public class VoterRegistrationController implements Initializable {
         emailField.clear();
         telephoneField.clear();
         profilePic.setImage(null);
+        btnSave.setDisable(true);
     }
 }

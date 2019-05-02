@@ -1,8 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane prefHeight="505.0" prefWidth="812.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ManageElection">
-
-</AnchorPane>
+<StackPane fx:id="stackpane" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ManageElection">
+   <children>
+      <AnchorPane prefHeight="505.0" prefWidth="812.0">
+         <children>
+            <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="67.0" prefWidth="812.0" style="-fx-background-color: #e0e0e0e0;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <HBox alignment="CENTER" layoutX="20.0" layoutY="10.0" spacing="5.0">
+                     <children>
+                        <FontAwesomeIconView glyphName="BRIEFCASE" size="20.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <Label styleClass="voter_reg_tab_main_label" stylesheets="@styleSheet.css" text="Manage Election" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <HBox alignment="CENTER" layoutX="125.0" layoutY="75.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="438.0" prefWidth="344.0" spacing="25.0" HBox.hgrow="NEVER">
+                     <children>
+                        <GridPane prefHeight="100.0" prefWidth="290.0" VBox.vgrow="NEVER">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label stylesheets="@styleSheet.css" text="Election name" />
+                              <Label fx:id="electionNameLbl" stylesheets="@styleSheet.css" text="Election name" GridPane.columnIndex="1" />
+                              <Label stylesheets="@styleSheet.css" text="Start date" GridPane.rowIndex="1" />
+                              <Label stylesheets="@styleSheet.css" text="Status" GridPane.rowIndex="2" />
+                              <Label fx:id="statusLbl" stylesheets="@styleSheet.css" text="Pending..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label stylesheets="@styleSheet.css" text="08/05/2019" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                        <VBox spacing="5.0">
+                           <children>
+                              <Label stylesheets="@styleSheet.css" text="Contested posts:" />
+                              <JFXListView fx:id="postsListview" prefHeight="239.0" prefWidth="290.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </JFXListView>
+                              <StackPane>
+                                 <children>
+                                    <JFXButton graphicTextGap="3.0" mnemonicParsing="false" onAction="#update" prefHeight="38.0" prefWidth="81.0" stylesheets="@styleSheet.css" text="Set" />
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

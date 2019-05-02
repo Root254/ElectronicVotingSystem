@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.TableColumn?>
@@ -7,16 +8,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="917.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="503.0" prefWidth="917.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ViewCandidateController">
     <children>
-        <TableView layoutX="182.0" layoutY="104.0" prefHeight="378.0" prefWidth="790.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="70.0">
+        <TableView fx:id="candidateTable" layoutX="182.0" layoutY="104.0" prefHeight="378.0" prefWidth="790.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="70.0">
             <columns>
-                <TableColumn prefWidth="117.0" text="Image" />
-                <TableColumn prefWidth="166.0" text="Name" />
-                <TableColumn prefWidth="109.0" text="School" />
-                <TableColumn prefWidth="158.0" text="Email" />
-                <TableColumn prefWidth="105.0" text="Telephone" />
-            <TableColumn prefWidth="134.0" text="Position" />
+                <TableColumn fx:id="imgCol" prefWidth="117.0" text="Image" />
+                <TableColumn fx:id="idCol" prefWidth="138.0" text="CandidateID" />
+                <TableColumn fx:id="nameCol" prefWidth="170.0" text="Name" />
+                <TableColumn fx:id="schoolCol" prefWidth="112.0" text="School" />
+                <TableColumn fx:id="telCol" prefWidth="118.0" text="Telephone" />
+            <TableColumn fx:id="posCol" prefWidth="134.0" text="Position" />
             </columns>
         </TableView>
         <HBox alignment="CENTER" layoutX="621.0" layoutY="20.0" spacing="5.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="20.0">
@@ -25,5 +26,6 @@
                 <JFXTextField promptText="Search" stylesheets="@styleSheet.css" />
             </children>
         </HBox>
+      <JFXComboBox fx:id="selectCombo" layoutX="48.0" layoutY="26.0" prefWidth="150.0" promptText="Select position" />
     </children>
 </AnchorPane>

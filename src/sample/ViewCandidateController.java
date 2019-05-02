@@ -1,75 +1,61 @@
 package sample;
 
-import com.jfoenix.controls.JFXButton;
-import javafx.event.ActionEvent;
+import com.jfoenix.controls.JFXComboBox;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class ViewCandidateController {
-    public BorderPane borderpane;
-    @FXML private JFXButton dashboard;
-    @FXML private JFXButton voterRegistration;
-    @FXML private JFXButton viewVoters;
-    @FXML private JFXButton candidateRegistration;
-    @FXML private JFXButton viewCandidates;
-    @FXML private JFXButton results;
-    @FXML private JFXButton winners;
+public class ViewCandidateController implements Initializable {
+    @FXML private JFXComboBox selectCombo;
+    @FXML private TableView<Candidate> candidateTable;
+    @FXML private TableColumn<Candidate, ImageView> imgCol;
+    @FXML private TableColumn<Candidate, String> idCol;
+    @FXML private TableColumn<Candidate, String> nameCol;
+    @FXML private TableColumn<Candidate, String> schoolCol;
+    @FXML private TableColumn<Candidate, Integer> telCol;
+    @FXML private TableColumn<Candidate, String> posCol;
 
-    Stage window;
+    ObservableList<Candidate> candidateData = FXCollections.observableArrayList();
 
-    public void goToDashboard(ActionEvent actionEvent) throws IOException {
-        Parent dash = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
-        window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
 
-        window.setScene(new Scene(dash));
-    }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        CandidateRegistrationController cntl = new CandidateRegistrationController();
+        cntl.setPstnCombo();
+        selectCombo.setItems(cntl.pstnInitials);  //combine with filter/predicate
 
-    public void goToVoterRegistration(ActionEvent actionEvent) throws IOException {
-        Parent voterReg = FXMLLoader.load(getClass().getResource("voter_registration.fxml"));
-        window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        try {
+            Connection connection = DbConnector.getConnection();
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM voter_db.candidate_register");
 
-        window.setScene(new Scene(voterReg));
-    }
+            while (resultSet.next()) {
+                candidateData.add(new Candidate(resultSet.getString("CandidateID"), resultSet.getString("Name"), resultSet.getString("School"), resultSet.getString("Gender"), new ImageView(new Image(resultSet.getString("Avatar"), 100, 100, true, true)), resultSet.getString("Email"), resultSet.getInt("Mobile"), resultSet.getString("Position")));
+            }
+            resultSet.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-    public void goToViewVoters(ActionEvent actionEvent) throws IOException {
-        Parent viewVoter = FXMLLoader.load(getClass().getResource("view_voter.fxml"));
-        window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        imgCol.setCellValueFactory(new PropertyValueFactory<>("avatar"));
+        idCol.setCellValueFactory(new PropertyValueFactory<>("admissionNumber"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+        schoolCol.setCellValueFactory(new PropertyValueFactory<>("school"));
+        telCol.setCellValueFactory(new PropertyValueFactory<>("telephone"));
+        posCol.setCellValueFactory(new PropertyValueFactory<>("position"));
 
-        window.setScene(new Scene(viewVoter));
-    }
-
-    public void goToCandidateRegistration(ActionEvent actionEvent) throws IOException {
-        Parent candReg = FXMLLoader.load(getClass().getResource("candidate_registration.fxml"));
-        window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-
-        window.setScene(new Scene(candReg));
-    }
-
-    public void goToViewCandidates(ActionEvent actionEvent) throws IOException {
-        Parent viewCand = FXMLLoader.load(getClass().getResource("view_candidate.fxml"));
-        window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-
-        window.setScene(new Scene(viewCand));
-    }
-
-    public void goToResults(ActionEvent actionEvent) throws IOException {
-        Parent rslt = FXMLLoader.load(getClass().getResource("view_results.fxml"));
-        window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-
-        window.setScene(new Scene(rslt));
-    }
-
-    public void goToWinners(ActionEvent actionEvent) throws IOException {
-        Parent win = FXMLLoader.load(getClass().getResource("winners.fxml"));
-        window = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-
-        window.setScene(new Scene(win));
+        candidateTable.setItems(candidateData);
     }
 }
