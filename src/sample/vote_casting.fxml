@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane fx:id="boarderlayout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="904.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.VoteCasting">
+   <top>
+       <AnchorPane layoutX="232.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" styleClass="topPane" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+           <children>
+               <Label layoutX="377.0" layoutY="61.0" styleClass="main_label" stylesheets="@styleSheet.css" text="Pwani University Electoral Commission" AnchorPane.leftAnchor="196.0" AnchorPane.rightAnchor="196.0" AnchorPane.topAnchor="14.0" />
+               <Label fx:id="ballotTitle" layoutX="386.0" layoutY="103.0" styleClass="ballotTitle_label" stylesheets="@styleSheet.css" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="196.0" AnchorPane.rightAnchor="196.0" />
+           </children></AnchorPane>
+   </top>
+    <center>
+        <AnchorPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="650.0">
+            <children>
+                <JFXListView fx:id="listView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="650.0" style="-fx-background-color: transparent;">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </JFXListView>
+            </children>
+            <effect>
+                <DropShadow />
+            </effect>
+        </AnchorPane>
+    </center>
+   <bottom>
+      <AnchorPane prefHeight="41.0" prefWidth="904.0" BorderPane.alignment="CENTER">
+         <children>
+             <HBox fx:id="hbox" alignment="CENTER" spacing="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                 <children>
+                     <JFXButton fx:id="nextBtn" buttonType="RAISED" onAction="#next" prefHeight="0.0" prefWidth="96.0" stylesheets="@styleSheet.css" text="Continue" />
+                 </children>
+             </HBox>
+         </children></AnchorPane>
+   </bottom>
+</BorderPane>
