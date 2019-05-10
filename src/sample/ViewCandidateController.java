@@ -18,7 +18,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ViewCandidateController implements Initializable {
-    @FXML private JFXComboBox selectCombo;
+    @FXML private JFXComboBox<String> selectCombo;
     @FXML private TableView<Candidate> candidateTable;
     @FXML private TableColumn<Candidate, ImageView> imgCol;
     @FXML private TableColumn<Candidate, String> idCol;
@@ -36,18 +36,23 @@ public class ViewCandidateController implements Initializable {
         cntl.setPstnCombo();
         selectCombo.setItems(cntl.pstnInitials);  //combine with filter/predicate
 
-        try {
-            Connection connection = DbConnector.getConnection();
-            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM voter_db.candidate_register");
+        selectCombo.getSelectionModel().selectedItemProperty().addListener(((observable, oldValue, newValue) -> {
+            candidateData.clear();
+            try {
+                Connection connection = DbConnector.getConnection();
+                ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM voter_db.candidate_register WHERE Position = '"+newValue+"'");
 
-            while (resultSet.next()) {
-                candidateData.add(new Candidate(resultSet.getString("CandidateID"), resultSet.getString("Name"), resultSet.getString("School"), resultSet.getString("Gender"), new ImageView(new Image(resultSet.getString("Avatar"), 100, 100, true, true)), resultSet.getString("Email"), resultSet.getInt("Mobile"), resultSet.getString("Position")));
+                while (resultSet.next()) {
+                    candidateData.add(new Candidate(resultSet.getString("CandidateID"), resultSet.getString("Name"), resultSet.getString("School"), resultSet.getString("Gender"), new ImageView(new Image(resultSet.getString("Avatar"), 100, 100, true, true)), resultSet.getString("Email"), resultSet.getInt("Mobile"), resultSet.getString("Position")));
+                }
+                resultSet.close();
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-            resultSet.close();
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        }));
+
+
 
         imgCol.setCellValueFactory(new PropertyValueFactory<>("avatar"));
         idCol.setCellValueFactory(new PropertyValueFactory<>("admissionNumber"));

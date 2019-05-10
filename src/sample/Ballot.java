@@ -1,15 +1,27 @@
 package sample;
 
 import javafx.beans.property.SimpleStringProperty;
-import javafx.scene.image.ImageView;
 
 public class Ballot {
-    private SimpleStringProperty name;
+    private SimpleStringProperty name, id;
     private SimpleStringProperty avatar;
 
-    public Ballot(String name, String avatar) {
+    public Ballot(String id, String name, String avatar) {
+        this.id = new SimpleStringProperty(id);
         this.name = new SimpleStringProperty(name);
         this.avatar = new SimpleStringProperty(avatar);
+    }
+
+    public String getId() {
+        return id.get();
+    }
+
+//    public SimpleStringProperty idProperty() {
+//        return id;
+//    }
+
+    public void setId(String id) {
+        this.id.set(id);
     }
 
     public String getName() {

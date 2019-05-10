@@ -14,6 +14,7 @@
         <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="dashboard_toppane" stylesheets="@styleSheet.css" BorderPane.alignment="CENTER">
             <children>
                 <Label layoutX="296.0" layoutY="15.0" styleClass="main_label" stylesheets="@styleSheet.css" text="Pwani University Electoral Commission" AnchorPane.leftAnchor="296.0" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="14.0" />
+            <JFXButton layoutX="934.0" mnemonicParsing="false" onAction="#logout" stylesheets="@styleSheet.css" text="Logout" />
             </children>
         </AnchorPane>
     </top>
@@ -43,7 +44,7 @@
                         </HBox>
                     </graphic>
                 </JFXButton>
-            <JFXButton fx:id="winners1" contentDisplay="GRAPHIC_ONLY" graphicTextGap="5.0" layoutX="10.0" layoutY="324.0" onAction="#goToWinners" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
+            <JFXButton fx:id="manageElection" contentDisplay="GRAPHIC_ONLY" graphicTextGap="5.0" layoutX="10.0" layoutY="324.0" onAction="#goToManageElection" ripplerFill="#070214" style="-fx-background-color: transparent;" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
                <graphic>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="leftPane_menu" stylesheets="@styleSheet.css">
                      <children>
@@ -115,4 +116,7 @@
                 </JFXButton>
             </children></VBox>
     </left>
+    <center>
+        <fx:include source="dashboard.fxml" />
+    </center>
 </BorderPane>

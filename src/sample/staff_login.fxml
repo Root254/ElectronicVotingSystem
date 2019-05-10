@@ -24,14 +24,16 @@
                         <DropShadow />
                     </effect>
                     <children>
-                        <JFXTextField fx:id="staffField" focusColor="#039be5" labelFloat="true" layoutX="101.0" layoutY="169.0" promptText="StaffID" styleClass="jfx-text-field" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="170.0" />
+                        <JFXTextField fx:id="staffField" focusColor="#039be5" labelFloat="true" layoutX="101.0" layoutY="169.0" onMouseExited="#validateField" promptText="StaffID" styleClass="jfx-text-field" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="160.0" />
                         <JFXButton fx:id="staff_login" buttonType="RAISED" layoutX="164.0" layoutY="273.0" onAction="#handleStaffLogin" styleClass="jfx-button" stylesheets="@styleSheet.css" text="Login" AnchorPane.leftAnchor="164.0" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="270.0" />
-                        <JFXPasswordField fx:id="pwdField" labelFloat="true" layoutX="100.0" layoutY="219.0" promptText="Password" styleClass="jfx-text-field" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="220.0" />
+                        <JFXPasswordField fx:id="pwdField" labelFloat="true" layoutX="100.0" layoutY="219.0" onMouseExited="#validateField" promptText="Password" styleClass="jfx-text-field" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="210.0" />
                         <ImageView fitHeight="118.0" fitWidth="118.0" layoutX="149.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="30.0">
                             <image>
                                 <Image url="@res/User.png" />
                             </image>
                         </ImageView>
+                  <Label fx:id="errMsg" layoutX="100.0" layoutY="194.0" />
+                  <Label fx:id="errMsg2" layoutX="105.0" layoutY="241.0" />
                     </children>
                 </AnchorPane>
             </children>

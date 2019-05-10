@@ -9,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="29.0" styleClass="root" stylesheets="@styleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.VoterLoginController">
@@ -17,23 +18,39 @@
          <children>
             <Label fx:id="main_label" contentDisplay="CENTER" layoutX="196.0" layoutY="14.0" styleClass="ballotTitle_label" stylesheets="@styleSheet.css" text="Pwani University Electoral Commission" textFill="WHITE" AnchorPane.leftAnchor="196.0" AnchorPane.rightAnchor="196.0" AnchorPane.topAnchor="14.0" />
          </children></AnchorPane>
-      <HBox alignment="CENTER" layoutX="191.0" layoutY="66.0" styleClass="v-box" stylesheets="@styleSheet.css" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+      <HBox alignment="CENTER" layoutX="191.0" layoutY="66.0" styleClass="v-box" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
          <children>
-            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" styleClass="centerPane" stylesheets="@styleSheet.css" VBox.vgrow="NEVER">
-               <effect>
-                  <DropShadow />
-               </effect>
+            <StackPane fx:id="stackpane" VBox.vgrow="NEVER">
                <children>
-                  <JFXTextField fx:id="voterIDField" focusColor="#039be5" labelFloat="true" layoutX="101.0" layoutY="169.0" promptText="VoterID" styleClass="jfx-text-field" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="200.0" />
-                  <JFXButton fx:id="voter_login" buttonType="RAISED" layoutX="164.0" layoutY="273.0" onAction="#handleStaffLogin" styleClass="jfx-button" stylesheets="@styleSheet.css" text="Login" AnchorPane.leftAnchor="164.0" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="300.0" />
-                  <JFXPasswordField fx:id="pwdField" layoutX="100.0" layoutY="219.0" promptText="Token" styleClass="jfx-text-field" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="250.0" />
-                  <ImageView fitHeight="118.0" fitWidth="118.0" layoutX="149.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="50.0">
-                     <image>
-                        <Image url="@res/images.jpg" />
-                     </image>
-                  </ImageView>
+                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" styleClass="centerPane" stylesheets="@styleSheet.css">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <JFXTextField fx:id="voterIDField" focusColor="#039be5" labelFloat="true" layoutX="101.0" layoutY="169.0" onMouseExited="#validateField" promptText="VoterID" styleClass="jfx-text-field" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="160.0" />
+                        <JFXButton fx:id="voter_login" buttonType="RAISED" layoutX="164.0" layoutY="273.0" onAction="#autoVerification" prefHeight="32.0" prefWidth="112.0" styleClass="jfx-button" stylesheets="@styleSheet.css" text="Continue" AnchorPane.leftAnchor="164.0" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="300.0" />
+                        <HBox alignment="CENTER" layoutX="100.0" layoutY="250.0" spacing="15.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="250.0">
+                           <children>
+                              <JFXPasswordField fx:id="pwdField1" styleClass="jfx-text-field_pwd" stylesheets="@styleSheet.css" />
+                              <JFXPasswordField fx:id="pwdField2" layoutX="10.0" layoutY="10.0" styleClass="jfx-text-field_pwd" stylesheets="@styleSheet.css" />
+                              <JFXPasswordField fx:id="pwdField3" layoutX="30.0" layoutY="10.0" styleClass="jfx-text-field_pwd" stylesheets="@styleSheet.css" />
+                              <JFXPasswordField fx:id="pwdField4" layoutX="50.0" layoutY="10.0" styleClass="jfx-text-field_pwd" stylesheets="@styleSheet.css" />
+                              <JFXPasswordField fx:id="pwdField5" layoutX="70.0" layoutY="10.0" styleClass="jfx-text-field_pwd" stylesheets="@styleSheet.css" />
+                              <JFXPasswordField fx:id="pwdField6" layoutX="90.0" layoutY="10.0" styleClass="jfx-text-field_pwd" stylesheets="@styleSheet.css" />
+                           </children>
+                        </HBox>
+                        <ImageView fitHeight="118.0" fitWidth="118.0" layoutX="149.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="50.0">
+                           <image>
+                              <Image url="@res/images.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="23.0" layoutY="215.0" text="Please enter the verification code that will be sent to your phone" />
+                        <JFXButton fx:id="mvBtn" disable="true" layoutX="252.0" layoutY="345.0" mnemonicParsing="false" onAction="#manualVerification" styleClass="jfx-button_cancel" stylesheets="@styleSheet.css" text="Manual verification" />
+                        <Label fx:id="errMsg" layoutX="101.0" layoutY="200.0" />
+                     </children>
+                  </AnchorPane>
                </children>
-            </AnchorPane>
+            </StackPane>
          </children>
       </HBox>
    </children>

@@ -1,15 +1,12 @@
 package sample;
 
 import com.jfoenix.controls.*;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -65,18 +62,18 @@ public class ManageElection implements Initializable {
                 "    -fx-background-radius: 20px;\n" +
                 "    -fx-text-fill: white;\n" +
                 "    -fx-font-family: \"Times New Roman\";\n" +
-                "    -fx-font: bold;\n" +
+                "    -fx-font-weight: bold;\n" +
                 "    -fx-font-size: 18px;\n" +
                 "    -fx-alignment: center;");
         btn.setOnAction(event -> {
             dialog.close();
         });
 
-        btn1.setStyle("-fx-border-color: #039be5;\n" +
-                "    -fx-border-radius: 20px;\n" +
+        btn1.setStyle("-fx-background-color: transparent;\n" +
+                "    -fx-background-radius: 20px;\n" +
                 "    -fx-text-fill: black;\n" +
                 "    -fx-font-family: \"Times New Roman\";\n" +
-                "    -fx-font: bold;\n" +
+                "    -fx-font-weight: bold;\n" +
                 "    -fx-font-size: 18px;\n" +
                 "    -fx-alignment: center;");
         btn1.setOnAction(event -> {

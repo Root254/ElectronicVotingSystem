@@ -32,8 +32,8 @@ public class VoterRegistrationController implements Initializable {
     @FXML private Label errMsg;
     @FXML private JFXTextField admField;
     @FXML private JFXTextField nameField;
-    @FXML private JFXComboBox schoolCombo;
-    @FXML private JFXComboBox genderCombo;
+    @FXML private JFXComboBox<String> schoolCombo;
+    @FXML private JFXComboBox<String> genderCombo;
     @FXML private JFXTextField emailField;
     @FXML private JFXTextField telephoneField;
 
@@ -111,7 +111,7 @@ public class VoterRegistrationController implements Initializable {
     @FXML private void save(ActionEvent actionEvent) {
         try {
             Connection con = DbConnector.getConnection();
-            PreparedStatement stmt = con.prepareStatement("INSERT INTO voter_db.voter_register VALUES (?,?,?,?,?,?,?)");
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO voter_db.voter_register (VoterID, Name, School, Gender, Avatar, Email, Mobile) VALUES (?,?,?,?,?,?,?)");
 
             stmt.setString(1, admField.getText());
             stmt.setString(2, nameField.getText());

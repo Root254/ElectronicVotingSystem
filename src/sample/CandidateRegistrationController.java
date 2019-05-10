@@ -13,9 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.FileChooser;
 
-import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,15 +29,14 @@ public class CandidateRegistrationController implements Initializable {
     @FXML private Label errMsg;
     @FXML private JFXTextField admField;
     @FXML private JFXTextField nameField;
-    @FXML private JFXComboBox schoolCombo;
-    @FXML private JFXComboBox genderCombo;
+    @FXML private JFXComboBox<String> schoolCombo;
+    @FXML private JFXComboBox<String> genderCombo;
     @FXML private JFXTextField emailField;
     @FXML private JFXTextField telephoneField;
-    @FXML private JFXComboBox pstnCombo;
+    @FXML private JFXComboBox<String> pstnCombo;
 
     private ObservableList<String> schoolInitials = FXCollections.observableArrayList("SPAS", "SHSS", "SASA", "SBE", "SEES", "SoE");
     private ObservableList<String> genderInitials = FXCollections.observableArrayList("Male", "Female");
-    private ObservableList<ContestedPost> positionsData = FXCollections.observableArrayList();
     public ObservableList<String> pstnInitials = FXCollections.observableArrayList();
     private Image image;
 
@@ -90,6 +87,7 @@ public class CandidateRegistrationController implements Initializable {
                         errMsg.setVisible(false);
                     }
                 }
+                resultSet.close();
                 rs.close();
                 con.close();
 
@@ -103,18 +101,24 @@ public class CandidateRegistrationController implements Initializable {
         try {
             Connection con = DbConnector.getConnection();
             PreparedStatement stmt = con.prepareStatement("INSERT INTO voter_db.candidate_register VALUES (?,?,?,?,?,?,?,?)");
+            PreparedStatement statement = con.prepareStatement("INSERT INTO voter_db.results (Candidate_ID, Post_Name) VALUES (?, ?)");
+
+
+            statement.setString(1, admField.getText());
+            statement.setString(2, pstnCombo.getValue());
 
             stmt.setString(1, admField.getText());
             stmt.setString(2, nameField.getText());
-            stmt.setString(3, schoolCombo.getValue().toString());
-            stmt.setString(4, genderCombo.getValue().toString());
+            stmt.setString(3, schoolCombo.getValue());
+            stmt.setString(4, genderCombo.getValue());
             stmt.setString(5, pic.getImage().impl_getUrl());
             stmt.setString(6, emailField.getText());
             stmt.setInt(7, Integer.valueOf(telephoneField.getText()));
-            stmt.setString(8, pstnCombo.getValue().toString());
+            stmt.setString(8, pstnCombo.getValue());
             int i = stmt.executeUpdate();
+            int e = statement.executeUpdate();
 
-            if (i > 0) {
+            if (i > 0 && e > 0) {
                 msg.setVisible(true);
                 tick.setVisible(true);
             }
@@ -146,7 +150,6 @@ public class CandidateRegistrationController implements Initializable {
             ResultSet rs = con.createStatement().executeQuery("SELECT * FROM voter_db.contested_posts");
 
             while (rs.next()) {
-                //positionsData.add(new ContestedPost(rs.getInt("Post_ID"), rs.getString("Post_Name")));
                 pstnInitials.add(rs.getString("Post_Name"));
             }
             rs.close();

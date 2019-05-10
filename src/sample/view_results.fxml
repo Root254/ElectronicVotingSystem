@@ -9,35 +9,35 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="894.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="894.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ViewResultsController">
    <children>
       <SplitPane dividerPositions="0.5429292929292929" layoutX="26.0" layoutY="68.0" prefHeight="347.0" prefWidth="829.0" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="50.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="345.0" prefWidth="344.0">
                <children>
-                  <TableView layoutX="1.0" layoutY="-1.0" prefHeight="345.0" prefWidth="446.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="resultsTable" layoutX="1.0" layoutY="-1.0" prefHeight="345.0" prefWidth="446.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn editable="false" prefWidth="140.0" text="Image" />
-                      <TableColumn editable="false" minWidth="4.0" prefWidth="214.0" text="Name" />
-                        <TableColumn editable="false" prefWidth="90.0" text="Votes" />
+                      <TableColumn fx:id="imgCol" editable="false" prefWidth="140.0" text="Image" />
+                      <TableColumn fx:id="nameCol" editable="false" minWidth="4.0" prefWidth="214.0" text="Name" />
+                        <TableColumn fx:id="votesCol" editable="false" prefWidth="90.0" text="Votes" />
                     </columns>
                   </TableView>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="384.0" prefWidth="231.0">
                <children>
-                  <BarChart layoutX="-185.0" layoutY="-17.0" prefHeight="334.0" prefWidth="255.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <BarChart fx:id="bargraph" layoutX="-185.0" layoutY="-17.0" prefHeight="334.0" prefWidth="255.0" title="Results" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <xAxis>
-                      <CategoryAxis side="BOTTOM" />
+                      <CategoryAxis fx:id="candAxis" label="Candidates" side="BOTTOM" />
                     </xAxis>
                     <yAxis>
-                      <NumberAxis side="LEFT" />
+                      <NumberAxis fx:id="votesAxis" label="Number votes" side="LEFT" />
                     </yAxis>
                   </BarChart>
                </children>
             </AnchorPane>
         </items>
       </SplitPane>
-      <JFXComboBox layoutX="104.0" layoutY="23.0" prefWidth="150.0" promptText="Select Position" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0" />
+      <JFXComboBox fx:id="pstnCombo" layoutX="104.0" layoutY="23.0" prefHeight="25.0" prefWidth="167.0" promptText="Select Position" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="10.0" />
    </children>
 </AnchorPane>

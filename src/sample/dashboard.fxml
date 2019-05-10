@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Line?>
-<AnchorPane prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane prefHeight="750.0" prefWidth="982.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DashboardController">
    <children>
       <HBox alignment="CENTER" layoutX="11.0" layoutY="15.0" spacing="10.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="35.0">
          <children>
@@ -23,8 +27,8 @@
                      </children>
                   </StackPane>
                   <Label layoutX="158.0" layoutY="6.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Election" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0" />
-                  <Label fx:id="counter" layoutX="154.0" layoutY="36.0" stylesheets="@styleSheet.css" text="Pusa" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
-                  <Label layoutX="86.0" layoutY="78.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Election status : pending" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Label fx:id="electionName" layoutX="154.0" layoutY="36.0" stylesheets="@styleSheet.css" text="Pusa" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
+                  <Label fx:id="status" layoutX="86.0" layoutY="78.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Election status : pending" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                   <Line endX="100.0" layoutX="100.0" layoutY="60.0" startX="-100.0" stroke="#4caf50" strokeLineCap="ROUND" strokeWidth="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="65.0" />
                </children>
                <effect>
@@ -43,7 +47,7 @@
                      </children>
                   </StackPane>
                   <Label layoutX="158.0" layoutY="6.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Registered " AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0" />
-                  <Label fx:id="counter1" layoutX="154.0" layoutY="36.0" stylesheets="@styleSheet.css" text="1000" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
+                  <Label fx:id="voters" layoutX="154.0" layoutY="36.0" stylesheets="@styleSheet.css" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
                   <Label layoutX="86.0" layoutY="78.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Total number of registered voters" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                   <Line endX="100.0" layoutX="100.0" layoutY="60.0" startX="-100.0" stroke="#4caf50" strokeLineCap="ROUND" strokeWidth="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="65.0" />
                </children>
@@ -63,8 +67,8 @@
                      </children>
                   </StackPane>
                   <Label layoutX="158.0" layoutY="6.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Turnout" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0" />
-                  <Label fx:id="counter11" layoutX="154.0" layoutY="36.0" stylesheets="@styleSheet.css" text="1000" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
-                  <Label layoutX="86.0" layoutY="78.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Voter Turnout : 100%" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Label fx:id="counter11" layoutX="154.0" layoutY="36.0" stylesheets="@styleSheet.css" text="0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
+                  <Label layoutX="86.0" layoutY="78.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Voter Turnout : 0%" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                   <Line endX="100.0" layoutX="100.0" layoutY="60.0" startX="-100.0" stroke="#4caf50" strokeLineCap="ROUND" strokeWidth="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="65.0" />
                </children>
                <effect>
@@ -83,7 +87,7 @@
                      </children>
                   </StackPane>
                   <Label layoutX="158.0" layoutY="6.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Registered " AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0" />
-                  <Label fx:id="counter111" layoutX="154.0" layoutY="36.0" stylesheets="@styleSheet.css" text="1000" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
+                  <Label fx:id="counter111" layoutX="154.0" layoutY="36.0" stylesheets="@styleSheet.css" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
                   <Label layoutX="86.0" layoutY="78.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Total number of registered voters" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                   <Line endX="100.0" layoutX="100.0" layoutY="60.0" startX="-100.0" stroke="#4caf50" strokeLineCap="ROUND" strokeWidth="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="65.0" />
                </children>
@@ -93,32 +97,19 @@
             </AnchorPane>
          </children>
       </HBox>
-      <StackedBarChart layoutX="100.0" layoutY="194.0" prefHeight="155.0" prefWidth="323.0">
-         <xAxis>
-            <CategoryAxis side="BOTTOM" />
-         </xAxis>
-         <yAxis>
-            <NumberAxis side="LEFT" />
-         </yAxis>
-      </StackedBarChart>
-      <BarChart layoutX="452.0" layoutY="216.0" prefHeight="91.0" prefWidth="294.0">
-         <xAxis>
-            <CategoryAxis side="BOTTOM" />
-         </xAxis>
-         <yAxis>
-            <NumberAxis side="LEFT" />
-         </yAxis>
-      </BarChart>
-      <AreaChart layoutX="123.0" layoutY="356.0" prefHeight="188.0" prefWidth="300.0">
-         <xAxis>
-            <CategoryAxis side="BOTTOM" />
-         </xAxis>
-         <yAxis>
-            <NumberAxis side="LEFT" />
-         </yAxis>
-      </AreaChart>
-      <PieChart layoutX="477.0" layoutY="366.0" prefHeight="175.0" prefWidth="275.0" />
+      <HBox alignment="CENTER" layoutX="50.0" layoutY="178.0" spacing="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <PieChart fx:id="piechart" prefHeight="280.0" prefWidth="400.0" title="Schools" HBox.hgrow="NEVER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </PieChart>
+            <PieChart fx:id="piechart1" prefHeight="280.0" prefWidth="400.0" title="Gender" HBox.hgrow="NEVER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </PieChart>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
-
-
