@@ -58,7 +58,7 @@ public class WinnerListviewCell extends ListCell<Winners> {
                 while (rs.next()) {
                     //pstnNames.add(rs.getString("Post_Name"));
                     Connection connection = DbConnector.getConnection();
-                    ResultSet resultSet = connection.createStatement().executeQuery("SELECT MAX(results.Vote_count), candidate_register.Name, candidate_register.Avatar FROM voter_db.results INNER JOIN voter_db.candidate_register ON results.Candidate_ID = candidate_register.CandidateID WHERE Post_Name = '"+rs.getString("Post_Name")+"'");
+                    ResultSet resultSet = connection.createStatement().executeQuery("SELECT results.Vote_count, candidate_register.Name, candidate_register.Avatar FROM voter_db.results INNER JOIN voter_db.candidate_register ON results.Candidate_ID = candidate_register.CandidateID WHERE Post_Name = '"+rs.getString("Post_Name")+"'");
 
                     while (resultSet.next()) {
                         ballotObservableList.add(new Winners(resultSet.getInt("Vote_count"), resultSet.getString("Name"), resultSet.getString("Avatar")));

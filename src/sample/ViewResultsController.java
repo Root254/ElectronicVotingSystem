@@ -32,7 +32,6 @@ public class ViewResultsController implements Initializable {
 
     private ObservableList<Result> resultsData = FXCollections.observableArrayList();
     private ObservableList<String> pstnInitials = FXCollections.observableArrayList();
-    private ObservableList<String> votes = FXCollections.observableArrayList();
 
 
 

@@ -14,6 +14,9 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
@@ -22,9 +25,12 @@ public class DashboardController implements Initializable {
     public Label voters;
     public PieChart piechart;
     public PieChart piechart1;
+    public Label turnOut;
+    public Label percent;
 
     private ObservableList<Voter> voterData = FXCollections.observableArrayList();
     private ObservableList<String> voterCount = FXCollections.observableArrayList();
+    private ObservableList<String> count = FXCollections.observableArrayList();
     private ObservableList<String> gender = FXCollections.observableArrayList("Male", "Female");
     private ObservableList<String> schoolInitials = FXCollections.observableArrayList("SPAS", "SHSS", "SASA", "SBE", "SEES", "SoE");
 
@@ -34,13 +40,35 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
+            Connection con = DbConnector.getConnection();
+            ResultSet rs = con.createStatement().executeQuery("SELECT Name, Start_Date FROM voter_db.election_details");
+            rs.next();
+
+            electionName.setText(rs.getString("Name"));
+
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            if (!format.format(new Date()).equals(rs.getString("Start_Date"))) {
+                status.setText("Election status : pending");
+            }
+            else {
+                status.setText("Election status : active");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
             Connection connection = DbConnector.getConnection();
             ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM voter_db.voter_register");
+            ResultSet rs = connection.createStatement().executeQuery("SELECT VoterID FROM voter_db.voter_register WHERE Status = 1");
 
             while (resultSet.next()) {
                 voterData.add(new Voter(resultSet.getString("VoterID"), resultSet.getString("Name"), resultSet.getString("School"), resultSet.getString("Gender"), new ImageView(new Image(resultSet.getString("Avatar"), 100, 100, true, true)), resultSet.getString("Email"), resultSet.getInt("Mobile")));
             }
-        } catch (SQLException e) {
+            while (rs.next()) {
+                count.add(rs.getString("VoterID"));
+            }
+            turnOut.setText(String.valueOf(count.size()));
+        } catch (SQLException | ArithmeticException | NullPointerException e) {
             e.printStackTrace();
         }
         voters.setText(String.valueOf(voterData.size()));
@@ -58,27 +86,28 @@ public class DashboardController implements Initializable {
         piechart1.setData(piechartData1);
         piechart1.setStartAngle(90.0);
 
+        try {
+            Connection connection = DbConnector.getConnection();
+            ResultSet rs = connection.createStatement().executeQuery("SELECT School FROM voter_db.voter_register");
+
+            while (rs.next()) {
+                voterCount.add(rs.getString("School"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         ObservableList<PieChart.Data> piechartData = FXCollections.observableArrayList();
         for (String school : schoolInitials) {
-            voterCount.clear();
-            try {
-                Connection connection = DbConnector.getConnection();
-                ResultSet rs = connection.createStatement().executeQuery("SELECT School FROM voter_db.voter_register WHERE School = '"+school+"'");
-
-                while (rs.next()) {
-                    voterCount.add(rs.getString("School"));
+            int i = 0;
+            for (String sch : voterCount) {
+                if (school.equals(sch)) {
+                    i++;
                 }
-                for (String count : voterCount) {
-                    piechartData.add(new PieChart.Data(count, voterCount.size()));
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
             }
+            piechartData.add(new PieChart.Data(school, i));
         }
         piechart.setData(piechartData);
         piechart.setStartAngle(90.0);
-
-
     }
 }

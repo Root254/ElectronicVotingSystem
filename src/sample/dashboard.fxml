@@ -27,8 +27,8 @@
                      </children>
                   </StackPane>
                   <Label layoutX="158.0" layoutY="6.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Election" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0" />
-                  <Label fx:id="electionName" layoutX="154.0" layoutY="36.0" stylesheets="@styleSheet.css" text="Pusa" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
-                  <Label fx:id="status" layoutX="86.0" layoutY="78.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Election status : pending" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Label fx:id="electionName" layoutX="154.0" layoutY="36.0" stylesheets="@styleSheet.css" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
+                  <Label fx:id="status" layoutX="86.0" layoutY="78.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                   <Line endX="100.0" layoutX="100.0" layoutY="60.0" startX="-100.0" stroke="#4caf50" strokeLineCap="ROUND" strokeWidth="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="65.0" />
                </children>
                <effect>
@@ -67,8 +67,8 @@
                      </children>
                   </StackPane>
                   <Label layoutX="158.0" layoutY="6.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Turnout" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0" />
-                  <Label fx:id="counter11" layoutX="154.0" layoutY="36.0" stylesheets="@styleSheet.css" text="0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
-                  <Label layoutX="86.0" layoutY="78.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Voter Turnout : 0%" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Label fx:id="turnOut" layoutX="154.0" layoutY="36.0" stylesheets="@styleSheet.css" text="0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0" />
+                  <Label fx:id="percent" layoutX="86.0" layoutY="78.0" styleClass="dashboard_tile_label" stylesheets="@styleSheet.css" text="Voter Turnout" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                   <Line endX="100.0" layoutX="100.0" layoutY="60.0" startX="-100.0" stroke="#4caf50" strokeLineCap="ROUND" strokeWidth="3.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="65.0" />
                </children>
                <effect>

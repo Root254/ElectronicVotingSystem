@@ -27,7 +27,7 @@
                   </HBox>
                </children>
             </AnchorPane>
-            <HBox alignment="CENTER" layoutX="125.0" layoutY="75.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <HBox alignment="CENTER" layoutX="125.0" layoutY="75.0" spacing="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <children>
                   <VBox alignment="CENTER" prefHeight="438.0" prefWidth="344.0" spacing="25.0" HBox.hgrow="NEVER">
                      <children>
@@ -43,11 +43,11 @@
                           </rowConstraints>
                            <children>
                               <Label stylesheets="@styleSheet.css" text="Election name" />
-                              <Label fx:id="electionNameLbl" stylesheets="@styleSheet.css" text="Election name" GridPane.columnIndex="1" />
+                              <Label fx:id="electionNameLbl" stylesheets="@styleSheet.css" GridPane.columnIndex="1" />
                               <Label stylesheets="@styleSheet.css" text="Start date" GridPane.rowIndex="1" />
                               <Label stylesheets="@styleSheet.css" text="Status" GridPane.rowIndex="2" />
-                              <Label fx:id="statusLbl" stylesheets="@styleSheet.css" text="Pending..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Label stylesheets="@styleSheet.css" text="08/05/2019" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="statusLbl" stylesheets="@styleSheet.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="date" stylesheets="@styleSheet.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                         <VBox spacing="5.0">
@@ -60,7 +60,12 @@
                               </JFXListView>
                               <StackPane>
                                  <children>
-                                    <JFXButton graphicTextGap="3.0" mnemonicParsing="false" onAction="#update" prefHeight="38.0" prefWidth="81.0" stylesheets="@styleSheet.css" text="Set" />
+                                    <AnchorPane>
+                                       <children>
+                                          <JFXButton graphicTextGap="3.0" mnemonicParsing="false" onAction="#update" prefHeight="38.0" prefWidth="81.0" stylesheets="@styleSheet.css" text="Set" AnchorPane.leftAnchor="0.0" />
+                                          <JFXButton fx:id="reset" layoutX="18.0" layoutY="8.0" mnemonicParsing="false" onAction="#resetElection" styleClass="jfx-button_cancel" stylesheets="@styleSheet.css" text="Reset" visible="false" AnchorPane.rightAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
                                  </children>
                               </StackPane>
                            </children>

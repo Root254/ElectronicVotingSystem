@@ -17,6 +17,7 @@
       <AnchorPane layoutX="14.0" layoutY="9.0" prefHeight="6.0" prefWidth="200.0" styleClass="topPane" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="main_label" contentDisplay="CENTER" layoutX="196.0" layoutY="14.0" styleClass="ballotTitle_label" stylesheets="@styleSheet.css" text="Pwani University Electoral Commission" textFill="WHITE" AnchorPane.leftAnchor="196.0" AnchorPane.rightAnchor="196.0" AnchorPane.topAnchor="14.0" />
+            <JFXButton layoutX="908.0" layoutY="18.0" mnemonicParsing="false" onAction="#switchWindow" stylesheets="@styleSheet.css" text="Switch" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0" />
          </children></AnchorPane>
       <HBox alignment="CENTER" layoutX="191.0" layoutY="66.0" styleClass="v-box" stylesheets="@styleSheet.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
          <children>
@@ -45,7 +46,7 @@
                            </image>
                         </ImageView>
                         <Label layoutX="23.0" layoutY="215.0" text="Please enter the verification code that will be sent to your phone" />
-                        <JFXButton fx:id="mvBtn" disable="true" layoutX="252.0" layoutY="345.0" mnemonicParsing="false" onAction="#manualVerification" styleClass="jfx-button_cancel" stylesheets="@styleSheet.css" text="Manual verification" />
+                        <JFXButton fx:id="mvBtn" layoutX="252.0" layoutY="345.0" mnemonicParsing="false" onAction="#manualVerification" styleClass="jfx-button_cancel" stylesheets="@styleSheet.css" text="Manual verification" visible="false" />
                         <Label fx:id="errMsg" layoutX="101.0" layoutY="200.0" />
                      </children>
                   </AnchorPane>

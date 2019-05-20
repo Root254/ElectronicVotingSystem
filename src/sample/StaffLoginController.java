@@ -30,7 +30,6 @@ public class StaffLoginController implements Initializable {
     Stage window;
 
     public void handleStaffLogin(ActionEvent actionEvent) throws IOException {
-        //Boolean status = Validator.validatePwd(pwdField.getText());
 
         try {
             Connection con = DbConnector.getConnection();

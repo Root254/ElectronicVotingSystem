@@ -36,7 +36,7 @@
          <children>
              <HBox fx:id="hbox" alignment="CENTER" spacing="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                  <children>
-                     <JFXButton fx:id="nextBtn" buttonType="RAISED" onAction="#next" prefHeight="0.0" prefWidth="96.0" stylesheets="@styleSheet.css" text="Continue" />
+                     <JFXButton fx:id="nextBtn" buttonType="RAISED" disable="true" onAction="#next" prefHeight="0.0" prefWidth="96.0" stylesheets="@styleSheet.css" text="Continue" />
                  </children>
              </HBox>
          </children></AnchorPane>

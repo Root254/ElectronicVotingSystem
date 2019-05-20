@@ -36,20 +36,8 @@ public class VoterLoginController implements Initializable {
     private Stage window;
 
     public void validateField(MouseEvent mouseEvent) {
-        try {
-            Connection con = DbConnector.getConnection();
-            ResultSet rs = con.createStatement().executeQuery("SELECT Status FROM voter_db.voter_register WHERE VoterID = '"+voterIDField.getText()+"'");
-            rs.next();
-
-            if (rs.getRow() < 0) {
-                errMsg.setText("Already voted");
-                errMsg.setStyle("-fx-text-fill: red");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         if (voterIDField.getText().isEmpty()) {
-            mvBtn.setDisable(true);
+            mvBtn.setVisible(false);
             voterIDField.requestFocus();
             voterIDField.setStyle("-jfx-focus-color: red;");
             errMsg.setText("Please enter your VoterID");
@@ -62,16 +50,33 @@ public class VoterLoginController implements Initializable {
                 rs.next();
 
                 if (rs.getRow() < 1) {
-                    mvBtn.setDisable(true);
+                    mvBtn.setVisible(false);
                     errMsg.setText("Not registered as a voter");
                     errMsg.setStyle("-fx-font-size: 12; -fx-text-fill: red;");
                     voterIDField.requestFocus();
                     voterIDField.setStyle("-jfx-focus-color: red;");
                 }
                 else {
-                    voterIDField.setStyle("-jfx-focus-color: #4059a9;");
-                    errMsg.setText(null);
-                    mvBtn.setDisable(false);
+                    if (rs.getInt("Status") == 1) {
+                        mvBtn.setVisible(false);
+                        errMsg.setText("Already voted");
+                        errMsg.setStyle("-fx-text-fill: red");
+                    }
+                    else {
+                        voterIDField.setStyle("-jfx-focus-color: #4059a9;");
+                        errMsg.setText(null);
+                        mvBtn.setVisible(true);
+                    }
+
+
+                    try {
+                        ResultSet resultSet = con.createStatement().executeQuery("SELECT Status FROM voter_db.voter_register WHERE VoterID = '"+voterIDField.getText()+"'");
+                        resultSet.next();
+
+
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -128,7 +133,7 @@ public class VoterLoginController implements Initializable {
                         ResultSet rs = con.createStatement().executeQuery("SELECT * FROM voter_db.voter_register WHERE VoterID = '"+voterIDField.getText()+"'");
                         rs.next();
 
-                        setVoted(rs.getString("VoterID"));
+//                        setVoted(rs.getString("VoterID"));
                         ImageView imageView = new ImageView(new Image(rs.getString("Avatar"), 200, 200, true, true));
                         Label lbl1 = new Label("Voter's Name");
                         Label lbl2 = new Label("Voter's ID");
@@ -179,30 +184,17 @@ public class VoterLoginController implements Initializable {
                                 "    -fx-alignment: center;");
                         cancelBtn.setOnAction(event -> dialog2.close());
                         verificationBtn.setOnAction(event -> {
-
                             try {
+                                setVoted(rs.getString("VoterID"));
                                 Parent parent = FXMLLoader.load(getClass().getResource("vote_casting.fxml"));
                                 window = (Stage) ((Node)event.getSource()).getScene().getWindow();
                                 window.setScene(new Scene(parent));
-                            } catch (IOException se) {
+                            } catch (IOException | SQLException se) {
                                 se.printStackTrace();
                             }
                         });
                         content.setActions(verificationBtn, cancelBtn);
                         dialog2.show();
-//                        try {
-//                            Parent root = FXMLLoader.load(getClass().getResource("manual_verification.fxml"));
-//
-//                        } catch (IOException ex) {
-//                            ex.printStackTrace();
-//                        }
-
-//                        if (rs.getRow() < 1) {
-//                            System.out.println("Biatch!!!!!");
-//                        }
-//                        else {
-//
-//                        }
                     }
                 }
                 resultSet.close();
@@ -219,12 +211,22 @@ public class VoterLoginController implements Initializable {
     @FXML private void autoVerification(ActionEvent actionEvent) {
     }
 
+    @FXML private void switchWindow(ActionEvent actionEvent) {
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("welcome_screen.fxml"));
+            window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+            window.setScene(new Scene(parent));
+        } catch (IOException se) {
+            se.printStackTrace();
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    public void setVoted(String adm) {
+    private void setVoted(String adm) {
         try {
             Connection con = DbConnector.getConnection();
             PreparedStatement stmt = con.prepareStatement("UPDATE voter_db.voter_register SET Status = ? WHERE VoterID = ?");

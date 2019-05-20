@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,8 +12,16 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.ResourceBundle;
 
-public class Controller {
+public class Controller implements Initializable {
 
     public JFXButton manageElection;
     /**
@@ -164,6 +173,25 @@ public class Controller {
         }
     }
 
-//    public void goToManageElection(ActionEvent actionEvent) {
-//    }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            Connection con = DbConnector.getConnection();
+            ResultSet rs = con.createStatement().executeQuery("SELECT Start_Date FROM voter_db.election_details");
+            rs.next();
+
+
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            if (format.format(new Date()).equals(rs.getString("Start_Date")) || new Date().after(format.parse(rs.getString("Start_Date")))) {
+                voterRegistration.setDisable(true);
+                candidateRegistration.setDisable(true);
+            }
+            else {
+                voterRegistration.setDisable(false);
+                candidateRegistration.setDisable(false);
+            }
+        } catch (SQLException | ParseException e) {
+            e.printStackTrace();
+        }
+    }
 }

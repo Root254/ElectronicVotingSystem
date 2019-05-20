@@ -37,8 +37,7 @@ public class CandidateRegistrationController implements Initializable {
 
     private ObservableList<String> schoolInitials = FXCollections.observableArrayList("SPAS", "SHSS", "SASA", "SBE", "SEES", "SoE");
     private ObservableList<String> genderInitials = FXCollections.observableArrayList("Male", "Female");
-    public ObservableList<String> pstnInitials = FXCollections.observableArrayList();
-    private Image image;
+    ObservableList<String> pstnInitials = FXCollections.observableArrayList();
 
     @FXML private void populateFields(MouseEvent mouseEvent) {
         tick.setVisible(false);
@@ -79,7 +78,7 @@ public class CandidateRegistrationController implements Initializable {
                         nameField.setText(rs.getString("Name"));
                         schoolCombo.setValue(rs.getString("School"));
                         genderCombo.setValue(rs.getString("Gender"));
-                        image = new Image(rs.getString("Avatar"), 100, 100, true, true);
+                        Image image = new Image(rs.getString("Avatar"), 100, 100, true, true);
                         pic.setImage(image);
                         emailField.setText(rs.getString("Email"));
                         telephoneField.setText(Integer.toString(rs.getInt("Mobile")));
@@ -144,7 +143,7 @@ public class CandidateRegistrationController implements Initializable {
         pstnCombo.setItems(pstnInitials);
     }
 
-    public void setPstnCombo() {
+    void setPstnCombo() {
         try {
             Connection con = DbConnector.getConnection();
             ResultSet rs = con.createStatement().executeQuery("SELECT * FROM voter_db.contested_posts");

@@ -14,7 +14,7 @@
         <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="dashboard_toppane" stylesheets="@styleSheet.css" BorderPane.alignment="CENTER">
             <children>
                 <Label layoutX="296.0" layoutY="15.0" styleClass="main_label" stylesheets="@styleSheet.css" text="Pwani University Electoral Commission" AnchorPane.leftAnchor="296.0" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="14.0" />
-            <JFXButton layoutX="934.0" mnemonicParsing="false" onAction="#logout" stylesheets="@styleSheet.css" text="Logout" />
+            <JFXButton layoutX="934.0" mnemonicParsing="false" onAction="#logout" stylesheets="@styleSheet.css" text="Logout" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
             </children>
         </AnchorPane>
     </top>
